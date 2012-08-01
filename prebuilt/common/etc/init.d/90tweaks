@@ -1,0 +1,30 @@
+#!/system/bin/sh
+# liquid smooth
+
+# filesystem tweaks
+for k in $(busybox mount | cut -d " " -f3)
+do
+sync
+  busybox mount -o remount,noatime,noauto_da_alloc,nodev,nodiratime,barrier=0,nobh $k
+done
+
+# normalized sleeper
+mount -t debugfs none /sys/kernel/debug
+echo NO_NORMALIZED_SLEEPER > /sys/kernel/debug/sched_features
+
+# scheduler tweaks
+for i in /sys/block/*
+do
+  echo 0 > $i/queue/rotational
+  echo 1024 > $i/queue/nr_requests
+  echo deadline > $i/queue/scheduler
+  echo 2 > $i/queue/read_ahead_kb
+done
+
+# default sdboost
+for i in /sys/devices/virtual/bdi/*
+do
+  echo 2 > $i/read_ahead_kb
+done
+echo 2048 > /sys/devices/virtual/bdi/179:0/read_ahead_kb
+echo 2 > /sys/devices/virtual/bdi/default/read_ahead_kb

@@ -1,0 +1,39 @@
+BAKED Black Android Kang Everyone Desires (TeamBAKED)
+=====================================================
+
+Getting Started
+---------------
+
+Please see the [Android source page](http://source.android.com/source/index.html) for building instructions.
+
+To initialize your local repository using our repos, use the following command:
+
+    repo init -u https://github.com/TeamBAKED/platform_manifest.git -b jb
+
+Then to sync up:
+
+    repo sync
+
+Building
+--------
+
+After the sync is finished, please read the [instructions from the Android site](http://s.android.com/source/building.html) on how to build.
+
+Once you've read that, you can build with
+
+    mka
+
+This will compile everything and use the correct "-j#" flag.
+
+You can also build a flashable zip with
+
+    the cm way
+    "mka bacon"
+
+    or the traditional create zip way
+    "mka otapackage"
+
+
+Special Thanks
+--------------
+To AOKP, Cyanogenmod and peter alfonso for their work in helping make this easier for everyone to get into. Also like to thank Google of course plus the entire android community for without you guys this would be kinda boring!

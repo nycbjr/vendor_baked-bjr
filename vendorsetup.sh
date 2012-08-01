@@ -1,0 +1,5 @@
+add_lunch_combo baked_toro-userdebug
+add_lunch_combo baked_torospr-userdebug
+add_lunch_combo baked_grouper-userdebug
+add_lunch_combo baked_maguro-userdebug
+add_lunch_combo baked_endeavoru-userdebug
